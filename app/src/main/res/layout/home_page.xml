@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/creditBalanceHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="48dp"
+        android:text="Your Current Balance:"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/creditBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:id="@+id/mealBalanceHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="48dp"
+        android:text="Your Current Meals Left:"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/mealBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/mealSpent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="-1 Meal"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/creditsSpent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="Input amount spent"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/subtractCredits"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Subtract Credits"
+        android:textSize="20sp" />
+</LinearLayout>

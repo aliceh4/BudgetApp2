@@ -19,39 +19,43 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         >
+
         <Button
+            android:id="@+id/twelveTen"
             android:layout_width="95dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="1dp"
-            android:text="12 / 10"
-            />
+            android:layout_marginTop="20dp"
+            android:text="12 / 10" />
+
         <Button
+            android:id="@+id/tenFortyFive"
             android:layout_width="95dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:text="10 / 45"
-            />
+            android:layout_marginTop="20dp"
+            android:text="10 / 45" />
+
         <Button
+            android:id="@+id/meals"
             android:layout_width="95dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:text="47 meals"
-            />
+            android:layout_marginTop="20dp"
+            android:text="47 meals" />
+
         <Button
+            android:id="@+id/credits"
             android:layout_width="95dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:text="130 cred"
-            />
+            android:layout_marginTop="20dp"
+            android:text="130 cred" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="200dp">
 
         <TextView
             android:layout_width="100dp"
@@ -63,15 +67,26 @@
 
 
     </ScrollView>
+    <EditText
+        android:id="@+id/monthlyExpense"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="Monthy Expense"
+        android:textSize="20sp" />
 
     <Button
+        android:id="@+id/expenseButton"
         android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="Add an expense"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Submit Monthly Expense"
+        android:textSize="20sp" />
 
 </LinearLayout>
-    Type a message...
