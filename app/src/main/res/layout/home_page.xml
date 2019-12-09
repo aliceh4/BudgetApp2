@@ -89,9 +89,9 @@
         android:id="@+id/monthlyBalanceHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="56dp"
+        android:layout_marginLeft="66dp"
         android:layout_marginTop="20dp"
-        android:text="Your Monthly Balance:"
+        android:text="Your Weekly Balance:"
         android:textAlignment="center"
         android:textColor="#FFF"
         android:textSize="28sp" />

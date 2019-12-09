@@ -71,7 +71,7 @@
         android:layout_marginLeft="17dp"
         android:background="@drawable/bg_purplerounded"
         android:gravity="center"
-        android:text="Enter Monthly Budget"
+        android:text="Enter Weekly Budget"
         android:textAlignment="center"
         android:textColor="#FFF"
         android:textSize="35dp"></TextView>
@@ -84,7 +84,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter Monthly Budget"
+        android:hint="Enter Weekly Budget"
         android:inputType="number"
         android:textAllCaps="false"
         android:textSize="18sp" />
