@@ -4,16 +4,26 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
+        android:background="@drawable/bg_purplerounded"
+        android:gravity="center"
+        android:text="Welcome to       UIUC Budgeter"
+        android:textColor="#FFF"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_purplerounded"
+        android:gravity="center"
         android:text="Select Meal Plan:"
         android:textAlignment="center"
-        android:textSize="35dp"
-        android:background="@color/colorPrimary"
         android:textColor="#FFF"
-        android:gravity="center"
-        >
-    </TextView>
+        android:textSize="35dp"></TextView>
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -55,27 +65,39 @@
             android:text="130 cred" />
     </RadioGroup>
 
+    <TextView
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="17dp"
+        android:background="@drawable/bg_purplerounded"
+        android:gravity="center"
+        android:text="Enter Monthly Budget"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="35dp"></TextView>
 
     <EditText
         android:id="@+id/monthlyExpense"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
+        android:hint="Enter Monthly Budget"
         android:inputType="number"
-        android:hint="Enter Monthly Expense"
+        android:textAllCaps="false"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/expenseButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Submit Monthly Expense"
+        android:text="Submit"
+        android:textAllCaps="false"
         android:textSize="20sp" />
 
 </LinearLayout>

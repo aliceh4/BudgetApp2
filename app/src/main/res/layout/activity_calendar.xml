@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:background="#9B8ECA"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65sp"
+        android:layout_marginTop="75dp"
+        android:text="Plan Future Expense"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginRight="44dp"
+        android:background="@drawable/bg_calen">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="320dp"></CalendarView>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/futureExpenseAmount"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_calen"
+        android:gravity="center"
+        android:hint="Input amount spent"
+        android:inputType="number"
+        android:textSize="20sp"></EditText>
+
+    <Button
+        android:id="@+id/submitFutureExpense"
+        android:layout_width="150sp"
+        android:layout_height="55sp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:text="Submit"/>
+
+</LinearLayout>

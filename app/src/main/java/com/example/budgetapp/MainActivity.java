@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             intent.putExtra("monthlyExpense", monthlyExpense.getText().toString());
         }
+
+        intent.putExtra("date", "");
+        intent.putExtra("futureExpenseAmount", "");
+
         startActivity(intent);
     }
 

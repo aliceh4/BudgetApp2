@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:background="@color/colorPrimary"
+    android:background="#9B8ECA"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -24,20 +24,20 @@
         android:id="@+id/mealBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0"
         android:gravity="center"
+        android:text="0"
         android:textColor="#FFF"
-        android:textSize="28sp"
-        />
+        android:textSize="28sp" />
 
     <Button
         android:id="@+id/mealSpent"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="-1 Meal"
+        android:textAllCaps="false"
         android:textSize="20sp" />
 
     <TextView
@@ -55,34 +55,35 @@
         android:id="@+id/creditBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0"
         android:gravity="center"
+        android:text="0"
         android:textColor="#FFF"
-        android:textSize="28sp"
-        />
+        android:textSize="28sp" />
 
 
     <EditText
         android:id="@+id/creditsSpent"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/bg_calen"
         android:ems="10"
         android:gravity="center"
-        android:inputType="number"
         android:hint="Input amount spent"
+        android:inputType="number"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/subtractCredits"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="75dp"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="Subtract Credits"
-        android:textSize="15sp" />
+        android:textAllCaps="false"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/monthlyBalanceHeader"
@@ -99,33 +100,54 @@
         android:id="@+id/monthlyBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0"
         android:gravity="center"
+        android:text="0"
         android:textColor="#FFF"
-        android:textSize="28sp"
-        />
+        android:textSize="28sp" />
 
     <EditText
         android:id="@+id/monthlySpent"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/bg_calen"
         android:ems="10"
         android:gravity="center"
-        android:inputType="number"
         android:hint="Input amount spent"
+        android:inputType="number"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/subtractMonthly"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="75dp"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="Subtract Expense"
-        android:textSize="15sp" />
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/futureExpense"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Plan Future Expense"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/futureExpenseTextView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="20sp" />
 
 
 </LinearLayout>
