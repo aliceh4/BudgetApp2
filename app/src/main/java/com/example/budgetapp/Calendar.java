@@ -11,9 +11,16 @@ import android.widget.EditText;
 
 public class Calendar extends AppCompatActivity {
 
+    /* store amount of credits */
     private String credits;
+
+    /* store amount of meals */
     private String meals;
+
+    /* store monthly expense */
     private String monthlyExpense;
+
+    /* store date selected */
     private String date;
 
     @Override
@@ -21,6 +28,7 @@ public class Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        // gets intent from Balance
         Intent incoming = getIntent();
         credits = incoming.getStringExtra("credits");
         meals = incoming.getStringExtra("meals");
@@ -32,6 +40,7 @@ public class Calendar extends AppCompatActivity {
 
         EditText futureExpenseAmount = findViewById(R.id.futureExpenseAmount);
 
+        // store date and format to be shown on balance_information page
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
@@ -42,6 +51,10 @@ public class Calendar extends AppCompatActivity {
         submitFutureExpense.setOnClickListener(unused -> submitFutureExpenseClicked(futureExpenseAmount));
     }
 
+    /**
+     * Stores inputted amount/date in the intent to be shown on the balance_information page
+     * @param futureExpenseAmount inputted amount by user to be spent (can be empty)
+     */
     private void submitFutureExpenseClicked(EditText futureExpenseAmount) {
         Intent intent = new Intent(this, Balance.class);
         intent.putExtra("credits", credits);

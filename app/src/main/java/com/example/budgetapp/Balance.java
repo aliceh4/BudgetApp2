@@ -12,34 +12,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public final class Balance extends AppCompatActivity {
 
-    /**
-     * storing this in a variable so I could pass it later.
-     */
+    /** number of meals user has left */
     private String meals;
 
-    /**
-     * storing this in a variable so I could pass it later.
-     */
+    /** amount of credits user has left */
     private String credits;
 
-    /**
-     * storing this in a variable so I could pass it later.
-     */
-    private String monthlyExpense;
+    /** amount of weekly expense left */
+    private String weeklyExpense;
 
-    /** i think I just like private instance variables. */
+    /** stores the date */
     private String date;
 
+    /** stores the future expense */
     private String futureExpenseAmount;
 
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_page);
+        setContentView(R.layout.balance_information);
 
+        // gets the intent from MainActivity
         Intent intent = getIntent();
 
+        // sets the UI to match previously selected data
         TextView mealBalance = findViewById(R.id.mealBalance);
         mealBalance.setText(intent.getStringExtra("meals"));
         meals = intent.getStringExtra("meals");
@@ -48,10 +45,11 @@ public final class Balance extends AppCompatActivity {
         creditBalance.setText(intent.getStringExtra("credits"));
         credits = intent.getStringExtra("credits");
 
-        TextView monthlyBalance = findViewById(R.id.monthlyBalance);
+        TextView monthlyBalance = findViewById(R.id.weeklyBalance);
         monthlyBalance.setText(intent.getStringExtra("monthlyExpense"));
-        monthlyExpense = intent.getStringExtra("monthlyExpense");
+        weeklyExpense = intent.getStringExtra("monthlyExpense");
 
+        // adds date and expense planned
         TextView futureExpenseText = findViewById(R.id.futureExpenseTextView);
         futureExpenseAmount = intent.getStringExtra("futureExpenseAmount");
         date = intent.getStringExtra("date");
@@ -64,77 +62,83 @@ public final class Balance extends AppCompatActivity {
             }
         }
 
+        // creates buttons and listeners
         Button subtractMeal = findViewById(R.id.mealSpent);
         Button subtractCredit = findViewById(R.id.subtractCredits);
-        Button subtractMonthly = findViewById(R.id.subtractMonthly);
-
+        Button subtractMonthly = findViewById(R.id.subtractWeekly);
         Button futureExpense = findViewById(R.id.futureExpense);
-
         subtractMeal.setOnClickListener(unused -> subtractMealClicked());
         subtractCredit.setOnClickListener(unused -> subtractCreditClicked());
-        subtractMonthly.setOnClickListener(unused -> subtractMonthlyClicked());
+        subtractMonthly.setOnClickListener(unused -> subtractWeeklyClicked());
         futureExpense.setOnClickListener(unused -> futureExpenseClicked());
     }
 
+    // Runs when "-1 Meal" button is clicked and reduces number by 1
     private void subtractMealClicked() {
         TextView mealBalance = findViewById(R.id.mealBalance);
-        int og = Integer.parseInt(mealBalance.getText().toString());
-        if (og == 0) {
-            showSecondAlertDialog();
+        int ogMealBalance = Integer.parseInt(mealBalance.getText().toString());
+        // shows alert dialog if there are no more meals left and button is clicked
+        if (ogMealBalance == 0) {
+            showMealAlertDialog();
         } else {
-            String after = String.valueOf(og - 1);
-            meals = after;
-            mealBalance.setText(after);
+            String afterClicked = String.valueOf(ogMealBalance - 1);
+            meals = afterClicked;
+            mealBalance.setText(afterClicked);
         }
     }
 
+    // Subtracts inputted amount (if any) from credits when subtractCredits is clicked
     private void subtractCreditClicked() {
         TextView creditBalance = findViewById(R.id.creditBalance);
         EditText creditsSpent = findViewById(R.id.creditsSpent);
-        int subtract = Integer.parseInt(creditsSpent.getText().toString());
-        int og = Integer.parseInt(creditBalance.getText().toString());
-        int after = og - subtract;
-        if (after >= 0 && og > 0) {
-            creditBalance.setText(String.valueOf(after));
-            credits = String.valueOf(after);
+        int subtractCredit = Integer.parseInt(creditsSpent.getText().toString());
+        int ogCredit = Integer.parseInt(creditBalance.getText().toString());
+        int result = ogCredit - subtractCredit;
+        // checks if needs to show alert dialog
+        if (result >= 0 && ogCredit > 0) {
+            creditBalance.setText(String.valueOf(result));
+            credits = String.valueOf(result);
             creditsSpent.setText("");
         } else {
-            showAlertDialog();
+            showAmountAlertDialog();
             creditsSpent.setText("");
         }
     }
 
-    private void subtractMonthlyClicked() {
-        TextView creditBalance = findViewById(R.id.monthlyBalance);
-        EditText creditsSpent = findViewById(R.id.monthlySpent);
+    // subtracts inputted expense when button clicked
+    private void subtractWeeklyClicked() {
+        TextView creditBalance = findViewById(R.id.weeklyBalance);
+        EditText creditsSpent = findViewById(R.id.weeklySpent);
         int subtract = Integer.parseInt(creditsSpent.getText().toString());
         int og = Integer.parseInt(creditBalance.getText().toString());
         int after = og - subtract;
         if (after >= 0 && og > 0) {
-            monthlyExpense = String.valueOf(after);
+            weeklyExpense = String.valueOf(after);
             creditBalance.setText(String.valueOf(after));
             creditsSpent.setText("");
         } else {
-            showAlertDialog();
+            showAmountAlertDialog();
             creditsSpent.setText("");
         }
     }
 
+    // Future expense subtracted
     private void subtractFutureExpense() {
-        TextView creditBalance = findViewById(R.id.monthlyBalance);
+        TextView creditBalance = findViewById(R.id.weeklyBalance);
         int subtract =  Integer.parseInt(futureExpenseAmount);
-        int og = Integer.parseInt(monthlyExpense);
+        int og = Integer.parseInt(weeklyExpense);
         int after = og - subtract;
         if (after >= 0 && og > 0) {
-            monthlyExpense = String.valueOf(after);
+            weeklyExpense = String.valueOf(after);
             creditBalance.setText(String.valueOf(after));
         } else {
-            showAlertDialog();
+            showAmountAlertDialog();
         }
     }
 
+    // Alert Dialog for credits and expenses
     AlertDialog myDialog;
-    public void showAlertDialog() {
+    public void showAmountAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Whoops");
         builder.setMessage("This input is too much! Consider getting something cheaper.");
@@ -149,8 +153,9 @@ public final class Balance extends AppCompatActivity {
 
     }
 
+    // Alert dialog for meals
     AlertDialog second;
-    public void showSecondAlertDialog() {
+    public void showMealAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Uh oh...");
         builder.setMessage("You have no more meal swipes.");
@@ -165,11 +170,13 @@ public final class Balance extends AppCompatActivity {
 
     }
 
+    // when button is clicked, brings you to calendar page and stores previous data in intent
     private void futureExpenseClicked() {
         Intent intent = new Intent(this, Calendar.class);
+        // in the future, want to use credits, meals, and monthlyExpense in calendar
         intent.putExtra("credits", credits);
         intent.putExtra("meals", meals);
-        intent.putExtra("monthlyExpense", monthlyExpense);
+        intent.putExtra("monthlyExpense", weeklyExpense);
         startActivity(intent);
         finish();
     }
